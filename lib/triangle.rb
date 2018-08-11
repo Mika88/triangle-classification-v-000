@@ -6,7 +6,10 @@ class Triangle
     @length_c = length_c
   end
   def kind
-    if length_a == length_b && length_b == length_c
+    if length_a < 0 || length_b < 0 || length_c < 0 || (length_a + length_b) < length_c || (length_a + length_c) < length_b || (length_b + length_c) < length_a
+       raise TartnerError
+    elsif
+     length_a == length_b && length_b == length_c
       :equilateral
     elsif
       length_a == length_b || length_a == length_c || length_b == length_c
@@ -15,11 +18,8 @@ class Triangle
       length_a != length_b && length_a != length_c && length_b != length_c
       :scalene
     end
-    
-    if length_a < 0 && length_b < 0 && length_c < 0 && length_a + length_b
-      
   end
+  
   class TriangleError < StandardError
-    
   end
 end
