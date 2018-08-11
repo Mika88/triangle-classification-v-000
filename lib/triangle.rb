@@ -6,7 +6,7 @@ class Triangle
     @length_c = length_c
   end
   def kind
-    if length_a < 0 || length_b < 0 || length_c < 0 || (length_a + length_b) < length_c || (length_a + length_c) < length_b || (length_b + length_c) < length_a
+    if length_a <= 0 || length_b <= 0 || length_c <= 0 || (length_a + length_b) < length_c || (length_a + length_c) < length_b || (length_b + length_c) < length_a
        raise TriangleError
     elsif
      length_a == length_b && length_b == length_c
